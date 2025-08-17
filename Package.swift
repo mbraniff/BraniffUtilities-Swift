@@ -10,7 +10,7 @@ let package = Package(
     products: [
         .library(
             name: "BraniffMacros",
-            targets: ["BraniffMacrosClient"])
+            targets: ["BraniffMacros"])
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", .upToNextMajor(from: "601.0.1")),
@@ -20,6 +20,6 @@ let package = Package(
             .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
             .product(name: "SwiftSyntaxBuilder", package: "swift-syntax")
         ]),
-        .target(name: "BraniffMacrosClient", dependencies: ["BraniffMacrosImpl"])
+        .target(name: "BraniffMacros", dependencies: ["BraniffMacrosImpl"])
     ]
 )
