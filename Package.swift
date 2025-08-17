@@ -6,7 +6,7 @@ import CompilerPluginSupport
 
 let package = Package(
     name: "BraniffUtilities",
-    platforms: [.iOS(.v15)],
+    platforms: [.iOS(.v15), .macOS(.v13)],
     products: [
         .library(
             name: "BraniffMacros",

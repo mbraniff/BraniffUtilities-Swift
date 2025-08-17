@@ -5,6 +5,7 @@
 //  Created by Matthew Braniff on 8/17/25.
 //
 
+import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 import SwiftDiagnostics
@@ -26,12 +27,12 @@ public struct CodingKeysMacro: MemberMacro {
                 let camelCase = toUpperCamel(name)
                 return "case \(raw: name) = \"\(raw: camelCase)\""
             }
-            .map { DeclSyntax($0) }
+            .map { try! DeclSyntax(validating: $0) }
 
         let enumDecl: DeclSyntax =
         """
         enum CodingKeys: String, CodingKey {
-            \(cases)
+            \(raw: cases)
         }
         """
 
