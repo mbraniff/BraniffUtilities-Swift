@@ -7,6 +7,6 @@
 
 @attached(member, names: named(CodingKeys))
 public macro AutoCodingKeys() = #externalMacro(
-    module: "BraniffMacros",
+    module: "BraniffMacrosImpl",
     type: "CodingKeysMacro"
 )
