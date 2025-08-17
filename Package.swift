@@ -6,7 +6,7 @@ let package = Package(
     name: "BraniffUtilities",
     platforms: [
         .iOS(.v15),
-        .macOS(.v13)   // macros run on macOS at build time
+        .macOS(.v13) // macros run on macOS at build time
     ],
     products: [
         .library(
@@ -24,6 +24,13 @@ let package = Package(
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftSyntaxBuilder", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
+            ]
+        ),
+        .testTarget(
+            name: "BraniffMacrosTests",
+            dependencies: [
+                "BraniffMacros",
+                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax")
             ]
         )
     ]
