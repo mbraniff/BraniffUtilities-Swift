@@ -19,19 +19,13 @@ let package = Package(
     ],
     targets: [
         .macro(
-            name: "BraniffMacros",
+            name: "BraniffMacrosMacros",
             dependencies: [
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
                 .product(name: "SwiftSyntaxBuilder", package: "swift-syntax"),
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
             ]
         ),
-        .testTarget(
-            name: "BraniffMacrosTests",
-            dependencies: [
-                "BraniffMacros",
-                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax")
-            ]
-        )
+        .target(name: "BraniffMacros", dependencies: ["BraniffMacrosMacros"])
     ]
 )
